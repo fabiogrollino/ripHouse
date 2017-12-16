@@ -9,11 +9,11 @@ public class LoginRequest implements Serializable {
 	private static final long serialVersionUID = -6397239022226901531L;
 
 	private String username;
-	private Character[] password;
+	private String password;
 	
 	public LoginRequest(
 			@JsonProperty("username") String username, 
-			@JsonProperty("password") Character[] password) {
+			@JsonProperty("password") String password) {
 		this.username = username;
 		this.password = password;
 	}
@@ -26,11 +26,11 @@ public class LoginRequest implements Serializable {
 		this.username = username;
 	}
 
-	public Character[] getPassword() {
+	public String getPassword() {
 		return password;
 	}
 
-	public void setPassword(Character[] password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	

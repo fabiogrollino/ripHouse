@@ -35,7 +35,7 @@
 								<groupId>org.riphouse</groupId>
 								<artifactId>ripHouse-web</artifactId>
 								<bundleFileName>ripHouse-web.war</bundleFileName>
-								<contextRoot>/feedback</contextRoot>
+								<contextRoot>/riphouse</contextRoot>
 							</webModule>
 							<ejbModule>
 								<groupId>org.riphouse</groupId>
