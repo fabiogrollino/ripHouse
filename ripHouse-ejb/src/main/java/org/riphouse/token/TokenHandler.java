@@ -8,8 +8,12 @@ import java.util.Date;
 import javax.crypto.spec.SecretKeySpec;
 import javax.ws.rs.ForbiddenException;
 
+import org.apache.http.auth.AuthenticationException;
 import org.riphouse.config.LoaderConfig;
 import org.riphouse.config.RipHouseConfig;
+import org.riphouse.exceptions.VechoException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 
@@ -19,31 +23,37 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 public class TokenHandler {
+	
+	private Logger logger = LoggerFactory.getLogger(TokenHandler.class);
 
 	private final String AUTHENTICATION_SCHEME = "bearer ";
 	private final int preTokenLenght = 6;
 	private Key key;
 	private RipHouseConfig cfg = LoaderConfig.getConfig();
-	
-	
-	public TokenHandler() throws UnsupportedEncodingException {
-		byte[] key = cfg.getKey().getBytes(StandardCharsets.UTF_8.name());
-		this.key = new SecretKeySpec(key, "HS512");
+
+
+	public TokenHandler() throws VechoException {
+		try {
+			byte[] key = cfg.getKey().getBytes(StandardCharsets.UTF_8.name());
+			this.key = new SecretKeySpec(key, "HS512");
+		} catch (UnsupportedEncodingException e) {
+			throw new VechoException(e);
+		}
 	}
-	
-	public String getStringToken(String authorizationHeader) {
+
+	public String getStringToken(String authorizationHeader) throws AuthenticationException {
 		if (authorizationHeader == null || !authorizationHeader.toLowerCase().startsWith(AUTHENTICATION_SCHEME)) {
-			throw new ForbiddenException("Token is required!");
+			throw new AuthenticationException("Token is required!");
 		}
 		return authorizationHeader.substring(preTokenLenght).trim();
 	}
-	
+
 	public String generateToken(InfoToken infoToken) {
 		String json = new Gson().toJson(infoToken);
 		Date expirationDate = cfg.getExpirationDate();
 		return Jwts.builder().setExpiration(expirationDate).setSubject(json).signWith(SignatureAlgorithm.HS512, key).compact();
 	}
-	
+
 	public InfoToken getInfoToken(String token) {
 		try {
 			Jws<Claims> jwsClaims = Jwts.parser().setSigningKey(key).parseClaimsJws(token);
@@ -51,9 +61,9 @@ public class TokenHandler {
 			InfoToken infoTokenBo = new Gson().fromJson(json, InfoToken.class);
 			return infoTokenBo;
 		} catch (Exception e) {
-			//TODO loggare
+			logger.error(e.getMessage(), e);
 			throw new ForbiddenException(e.getMessage());
 		}
-		
+
 	}
 }

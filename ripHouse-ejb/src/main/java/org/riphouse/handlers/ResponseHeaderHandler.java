@@ -18,10 +18,14 @@ import javax.ws.rs.ext.Provider;
 import org.apache.commons.io.IOUtils;
 import org.riphouse.token.InfoToken;
 import org.riphouse.token.TokenHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Provider
 public class ResponseHeaderHandler implements ContainerResponseFilter {
 
+	private Logger logger = LoggerFactory.getLogger(ResponseHeaderHandler.class);
+	
 	@Override
 	public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
 			throws IOException {
@@ -40,11 +44,13 @@ public class ResponseHeaderHandler implements ContainerResponseFilter {
 				MultivaluedMap<String,Object> responseHeaders = responseContext.getHeaders();
 				responseHeaders.add(HttpHeaders.AUTHORIZATION, token);
 			} catch (Exception e) {
-				//TODO loggare 
+				logger.error(e.getMessage(), e); 
 				if (e instanceof WebApplicationException) {
+					logger.info("WebApplicationException");
 					WebApplicationException ex = (WebApplicationException) e;
 					exceptionHandler(responseContext, ex, ex.getResponse().getStatus());
 				} else {
+					logger.info("Exception");
 					exceptionHandler(responseContext, e, Response.Status.INTERNAL_SERVER_ERROR.getStatusCode());
 				}
 			}
@@ -58,8 +64,8 @@ public class ResponseHeaderHandler implements ContainerResponseFilter {
 		try {
 			InputStream inputStream = IOUtils.toInputStream(e.getMessage() + " - ", StandardCharsets.UTF_8.name());
 			IOUtils.copy(inputStream, outputStream);
-		} catch (IOException e1) {
-			//TODO loggare almeno a warn
+		} catch (IOException ex) {
+			logger.warn(ex.getMessage(), ex);
 		}
 	}
 

@@ -8,9 +8,11 @@ import javax.ws.rs.core.Application;
 
 import org.riphouse.filters.AuthorizationFilter;
 import org.riphouse.filters.RestCorsFilter;
+import org.riphouse.handlers.BadRequestExceptionHandler;
 import org.riphouse.handlers.ExceptionHandler;
 import org.riphouse.handlers.ForbiddenExceptionHandler;
 import org.riphouse.handlers.InternalServerErrorExceptionHandler;
+import org.riphouse.handlers.NotAuthorizedExceptionHandler;
 import org.riphouse.handlers.ResponseHeaderHandler;
 import org.riphouse.services.AuthenticationService;
 
@@ -41,9 +43,9 @@ public class ApplicationConfig extends Application{
 	private void addHandlerResourceClasses(Set<Class<?>> resources) {
 		resources.add(ForbiddenExceptionHandler.class);
 		resources.add(InternalServerErrorExceptionHandler.class);
-//		resources.add(NotAuthorizedExceptionHandler.class);
+		resources.add(NotAuthorizedExceptionHandler.class);
 		resources.add(ExceptionHandler.class);
-//		resources.add(BadRequestHandler.class);
+		resources.add(BadRequestExceptionHandler.class);
 	}
 	
 }
