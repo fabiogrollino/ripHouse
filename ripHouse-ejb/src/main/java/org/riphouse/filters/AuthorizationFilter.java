@@ -31,6 +31,7 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 		try {
 			TokenHandler tokenHandler = new TokenHandler();
 			String token = tokenHandler.getStringToken(requestContext.getHeaderString(HttpHeaders.AUTHORIZATION));
+			logger.info("token: {}", token);
 			InfoToken infoToken = tokenHandler.getInfoToken(token);
 
 			// TODO implementare ulteriore logica di validazione del token

@@ -14,10 +14,10 @@ import org.riphouse.handlers.ForbiddenExceptionHandler;
 import org.riphouse.handlers.InternalServerErrorExceptionHandler;
 import org.riphouse.handlers.NotAuthorizedExceptionHandler;
 import org.riphouse.handlers.ResponseHeaderHandler;
-import org.riphouse.services.AuthenticationService;
+import org.riphouse.services.impl.AuthenticationServiceImpl;
 
 @ApplicationPath("")
-public class ApplicationConfig extends Application{
+public class ApplicationConfig extends Application {
 
 	@Override
 	public Set<Class<?>> getClasses() {
@@ -37,7 +37,7 @@ public class ApplicationConfig extends Application{
 	}
 
 	private void addRestResourceClasses(Set<Class<?>> resources) {
-		resources.add(AuthenticationService.class);
+		resources.add(AuthenticationServiceImpl.class);
 	}
 	
 	private void addHandlerResourceClasses(Set<Class<?>> resources) {

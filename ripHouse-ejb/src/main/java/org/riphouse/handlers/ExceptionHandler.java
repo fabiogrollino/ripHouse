@@ -25,7 +25,7 @@ public class ExceptionHandler implements ExceptionMapper<Exception> {
 			message.append(" - ");
 			message.append(e.getMessage());
 		}
-		logger.error("{}", message);
+		logger.error("{}", message, e);
 		return message.toString();
 	}
 
