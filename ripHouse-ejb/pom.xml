@@ -9,10 +9,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>ripHouse-ejb</artifactId>
-	<packaging>ejb</packaging>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+	<packaging>war</packaging>
+	<name>ripHouse-ejb Maven Webapp</name>
 
 	<dependencies>
 
@@ -108,14 +106,12 @@
 			<version>1.0.0.Final</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 			<scope>provided</scope>
 		</dependency>
-
 
 		<!-- TEST dependecies -->
 
@@ -127,6 +123,7 @@
 		</dependency>
 
 	</dependencies>
+
 
 	<build>
 		<plugins>
@@ -148,6 +145,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>ripHouse-ejb</finalName>
 	</build>
-
 </project>

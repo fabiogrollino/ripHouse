@@ -12,7 +12,7 @@
 		<dependency>
 			<groupId>org.riphouse</groupId>
 			<artifactId>ripHouse-ejb</artifactId>
-			<type>ejb</type>
+			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>org.riphouse</groupId>
@@ -37,11 +37,14 @@
 								<bundleFileName>ripHouse-web.war</bundleFileName>
 								<contextRoot>/riphouse</contextRoot>
 							</webModule>
-							<ejbModule>
+							
+							<webModule>
 								<groupId>org.riphouse</groupId>
 								<artifactId>ripHouse-ejb</artifactId>
-								<bundleFileName>ripHouse-ejb.jar</bundleFileName>
-							</ejbModule>
+								<bundleFileName>ripHouse-ejb.war</bundleFileName>
+								<contextRoot>/vecho</contextRoot>
+							</webModule>
+
 						</modules>
 						<defaultLibBundleDir>lib</defaultLibBundleDir>
 					</configuration>

@@ -36,22 +36,30 @@
 	</profiles>
 
 	<modules>
-		<module>ripHouse-ejb</module>
+		<!-- module>ripHouse-ejb</module-->
 		<module>ripHouse-web</module>
 		<module>ripHouse-ear</module>
+		<module>ripHouse-ejb</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
+			<!-- dependency>
 				<groupId>org.riphouse</groupId>
 				<artifactId>ripHouse-ejb</artifactId>
 				<version>${project.version}</version>
 				<type>ejb</type>
-			</dependency>
+			</dependency-->
 			<dependency>
 				<groupId>org.riphouse</groupId>
 				<artifactId>ripHouse-web</artifactId>
+				<version>${project.version}</version>
+				<type>war</type>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.riphouse</groupId>
+				<artifactId>ripHouse-ejb</artifactId>
 				<version>${project.version}</version>
 				<type>war</type>
 				<scope>compile</scope>
