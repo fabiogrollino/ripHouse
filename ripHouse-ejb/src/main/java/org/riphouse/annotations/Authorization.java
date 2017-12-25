@@ -14,4 +14,5 @@ import javax.ws.rs.NameBinding;
 @Target({ TYPE, METHOD })
 public @interface Authorization {
 
+	int level() default 0;
 }

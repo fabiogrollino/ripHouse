@@ -1,0 +1,52 @@
+Update date : Mon Dec 25 20:49:32 CET 2017
+ 
+ Table 'anagrafica' found in repository
+ (=) table 'anagrafica' unchanged
+ 
+ Table 'assistito' found in repository
+ (=) table 'assistito' unchanged
+ 
+ Table 'camera' found in repository
+ (=) table 'camera' unchanged
+ 
+ Table 'caregiverassistito' found in repository
+ (=) table 'caregiverassistito' unchanged
+ 
+ Table 'dizesenzione' found in repository
+ (=) table 'dizesenzione' unchanged
+ 
+ Table 'dizintensita' found in repository
+ (=) table 'dizintensita' unchanged
+ 
+ Table 'dizpiano' found in repository
+ (=) table 'dizpiano' unchanged
+ 
+ Table 'diztipologiaassistenziale' found in repository
+ (=) table 'diztipologiaassistenziale' unchanged
+ 
+ Table 'diztiporecapito' found in repository
+ (=) table 'diztiporecapito' unchanged
+ 
+ Table 'esenzioneassisitito' found in repository
+ (=) table 'esenzioneassisitito' unchanged
+ 
+ Table 'letto' found in repository
+ (=) table 'letto' unchanged
+ 
+ Table 'lettoassistito' found in repository
+ (=) table 'lettoassistito' unchanged
+ 
+ Table 'medicoassistito' found in repository
+ (=) table 'medicoassistito' unchanged
+ 
+ Table 'recapito' found in repository
+ (=) table 'recapito' unchanged
+ 
+ Table 'reparto' found in repository
+ (=) table 'reparto' unchanged
+ 
+ Table 'residenzariposo' found in repository
+ (=) table 'residenzariposo' unchanged
+ 
+ Table 'utente' found in repository
+ (=) table 'utente' unchanged

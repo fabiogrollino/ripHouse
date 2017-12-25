@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="MYSQL" databaseProductName="MySQL" generation="2017-12-25 20:47:30">
+<table catalog="vecho" databaseType="TABLE" javaBean="Anagrafica" name="anagrafica" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Nome" dbNotNull="true" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="nome" javaType="java.lang.String" jdbcTypeCode="12" label="Nome" maxLength="100" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Cognome" dbNotNull="true" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="cognome" javaType="java.lang.String" jdbcTypeCode="12" label="Cognome" maxLength="100" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="CodiceFiscale" dbNotNull="false" dbPosition="4" dbSize="16" dbTypeName="VARCHAR" inputType="text" javaName="codicefiscale" javaType="java.lang.String" jdbcTypeCode="12" label="Codicefiscale" maxLength="16" notNull="false" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="DataNascita" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="DATE" inputType="date" javaName="datanascita" javaType="java.util.Date" jdbcTypeCode="91" label="Datanascita" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ComuneNascita" dbNotNull="false" dbPosition="6" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="comunenascita" javaType="java.lang.String" jdbcTypeCode="12" label="Comunenascita" maxLength="100" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="anagrafica" id="LINK_FK_anagrafica_I" inverseSideOf="LINK_FK_anagrafica_O" javaName="listOfUtente" javaType="java.util.List" joinTableName="" mappedBy="anagrafica2" optional="UNDEFINED" owningSide="false" sourceTableName="anagrafica" targetEntity="Utente" targetTableName="utente" used="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Assistito" name="assistito" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="anagrafica" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="anagrafica" javaType="java.lang.Long" jdbcTypeCode="-5" label="Anagrafica" notNull="true" selected="true"/>
+<column dateType="D" dbComment="" dbDefaultValue="" dbName="dataScadenzaLibrettoSanitario" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="DATE" inputType="date" javaName="datascadenzalibrettosanitario" javaType="java.util.Date" jdbcTypeCode="91" label="Datascadenzalibrettosanitario" notNull="false" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Camera" name="camera" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Repato" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="repato" javaType="java.lang.Long" jdbcTypeCode="-5" label="Repato" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="0" dbName="NumeroPosti" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="numeroposti" javaType="java.lang.Integer" jdbcTypeCode="4" label="Numeroposti" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NumeroCamera" dbNotNull="false" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="numerocamera" javaType="java.lang.Integer" jdbcTypeCode="4" label="Numerocamera" notNull="false" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Caregiverassistito" name="caregiverassistito" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="CareGiver" dbNotNull="false" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="caregiver" javaType="java.lang.Long" jdbcTypeCode="-5" label="Caregiver" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Assisitito" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="assisitito" javaType="java.lang.Long" jdbcTypeCode="-5" label="Assisitito" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="TipoCareGiver" dbNotNull="false" dbPosition="4" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="tipocaregiver" javaType="java.lang.String" jdbcTypeCode="12" label="Tipocaregiver" maxLength="200" notNull="false" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Dizesenzione" name="dizesenzione" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Descrizione" dbNotNull="true" dbPosition="2" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="descrizione" javaType="java.lang.String" jdbcTypeCode="12" label="Descrizione" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Dizintensita" name="dizintensita" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Descrizione" dbNotNull="true" dbPosition="2" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="descrizione" javaType="java.lang.String" jdbcTypeCode="12" label="Descrizione" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Dizpiano" name="dizpiano" schema="">
+<column dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Descrizione" dbNotNull="true" dbPosition="2" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="descrizione" javaType="java.lang.String" jdbcTypeCode="12" label="Descrizione" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Diztipologiaassistenziale" name="diztipologiaassistenziale" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Descrizione" dbNotNull="true" dbPosition="2" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="descrizione" javaType="java.lang.String" jdbcTypeCode="12" label="Descrizione" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Diztiporecapito" name="diztiporecapito" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="TipoRecapito" dbNotNull="true" dbPosition="2" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="tiporecapito" javaType="java.lang.String" jdbcTypeCode="12" label="Tiporecapito" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Esenzioneassisitito" name="esenzioneassisitito" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Esenzione" dbNotNull="false" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="esenzione" javaType="java.lang.Long" jdbcTypeCode="-5" label="Esenzione" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Assisitito" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="assisitito" javaType="java.lang.Long" jdbcTypeCode="-5" label="Assisitito" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Letto" name="letto" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NumeroLetto" dbNotNull="true" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="numeroletto" javaType="java.lang.String" jdbcTypeCode="12" label="Numeroletto" maxLength="100" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Camera" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="camera" javaType="java.lang.Long" jdbcTypeCode="-5" label="Camera" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Telefono" dbNotNull="false" dbPosition="4" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="telefono" javaType="java.lang.String" jdbcTypeCode="12" label="Telefono" maxLength="200" notNull="false" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Lettoassistito" name="lettoassistito" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Letto" dbNotNull="false" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="letto" javaType="java.lang.Long" jdbcTypeCode="-5" label="Letto" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Assisitito" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="assisitito" javaType="java.lang.Long" jdbcTypeCode="-5" label="Assisitito" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Medicoassistito" name="medicoassistito" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Medico" dbNotNull="false" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="medico" javaType="java.lang.Long" jdbcTypeCode="-5" label="Medico" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Assisitito" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="assisitito" javaType="java.lang.Long" jdbcTypeCode="-5" label="Assisitito" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Recapito" name="recapito" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="TipoRecapito" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="tiporecapito" javaType="java.lang.Long" jdbcTypeCode="-5" label="Tiporecapito" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="ValoreRecapito" dbNotNull="true" dbPosition="3" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="valorerecapito" javaType="java.lang.String" jdbcTypeCode="12" label="Valorerecapito" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Reparto" name="reparto" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NomeReparto" dbNotNull="true" dbPosition="2" dbSize="200" dbTypeName="VARCHAR" inputType="text" javaName="nomereparto" javaType="java.lang.String" jdbcTypeCode="12" label="Nomereparto" maxLength="200" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Piano" dbNotNull="true" dbPosition="3" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="piano" javaType="java.lang.Long" jdbcTypeCode="-5" label="Piano" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Residenza" dbNotNull="true" dbPosition="4" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="residenza" javaType="java.lang.Long" jdbcTypeCode="-5" label="Residenza" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Residenzariposo" name="residenzariposo" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NomeResidenza" dbNotNull="true" dbPosition="2" dbSize="300" dbTypeName="VARCHAR" inputType="text" javaName="nomeresidenza" javaType="java.lang.String" jdbcTypeCode="12" label="Nomeresidenza" maxLength="300" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="NumeroPosti" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="numeroposti" javaType="java.lang.Integer" jdbcTypeCode="4" label="Numeroposti" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Indirizzo" dbNotNull="true" dbPosition="4" dbSize="300" dbTypeName="VARCHAR" inputType="text" javaName="indirizzo" javaType="java.lang.String" jdbcTypeCode="12" label="Indirizzo" maxLength="300" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Comune" dbNotNull="true" dbPosition="5" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="comune" javaType="java.lang.String" jdbcTypeCode="12" label="Comune" maxLength="100" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="Cap" dbNotNull="true" dbPosition="6" dbSize="6" dbTypeName="VARCHAR" inputType="text" javaName="cap" javaType="java.lang.String" jdbcTypeCode="12" label="Cap" maxLength="6" notEmpty="true" notNull="true" selected="true"/>
+</table>
+<table catalog="vecho" databaseType="TABLE" javaBean="Utente" name="utente" schema="">
+<column dbAutoIncremented="true" dbComment="" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="user" dbNotNull="true" dbPosition="2" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="user" javaType="java.lang.String" jdbcTypeCode="12" label="User" maxLength="100" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="password" dbNotNull="true" dbPosition="3" dbSize="100" dbTypeName="VARCHAR" inputType="text" javaName="password" javaType="java.lang.String" jdbcTypeCode="12" label="Password" maxLength="100" notEmpty="true" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbForeignKey="true" dbName="anagrafica" dbNotNull="true" dbPosition="4" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="anagrafica" javaType="java.lang.Long" jdbcTypeCode="-5" label="Anagrafica" notNull="true" selected="true"/>
+<column dbComment="" dbDefaultValue="" dbName="livello" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="livello" javaType="java.lang.Integer" jdbcTypeCode="4" label="Livello" notNull="true" selected="true"/>
+<column dateType="DT" dbComment="" dbDefaultValue="" dbName="ultimoLogin" dbNotNull="false" dbPosition="6" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="ultimologin" javaType="java.util.Date" jdbcTypeCode="93" label="Ultimologin" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="0" dbName="countLoginFailed" dbNotNull="false" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="countloginfailed" javaType="java.lang.Integer" jdbcTypeCode="4" label="Countloginfailed" notNull="false" selected="true"/>
+<column dbComment="" dbDefaultValue="0" dbName="utenteBloccato" dbNotNull="true" dbPosition="8" dbSize="3" dbTypeName="TINYINT" inputType="number" javaName="utentebloccato" javaType="java.lang.Byte" jdbcTypeCode="-6" label="Utentebloccato" notNull="true" selected="true"/>
+<fk name="anagrafica">
+<fkcol colname="anagrafica" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="utente" tableref="anagrafica" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="anagrafica" id="LINK_FK_anagrafica_O" inverseSideOf="" javaName="anagrafica2" javaType="Anagrafica" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="utente" targetEntity="Anagrafica" targetTableName="anagrafica" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="anagrafica" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+</tableList>
+</root>
