@@ -6,27 +6,19 @@ public class InfoToken implements Serializable {
 
 	private static final long serialVersionUID = -5732790456377443183L;	
 	
-	private Long idUtente;
 	private String user;
+	private Integer level;
+	private Long idUser;
 	private Long idAnagrafica;
-	
-	//TODO inserire anche il livello di utenza
 	
 	public InfoToken() {
 	}
 
-	public InfoToken(Long idUtente, String user, Long anagrafica) {
-		this.idUtente = idUtente;
+	public InfoToken(String user, Integer level, Long idUser, Long idAnagrafica) {
 		this.user = user;
-		this.idAnagrafica = anagrafica;
-	}
-
-	public Long getIdUtente() {
-		return idUtente;
-	}
-
-	public void setIdUtente(Long idUtente) {
-		this.idUtente = idUtente;
+		this.level = level;
+		this.idUser = idUser;
+		this.idAnagrafica = idAnagrafica;
 	}
 
 	public String getUser() {
@@ -37,6 +29,22 @@ public class InfoToken implements Serializable {
 		this.user = user;
 	}
 
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+
+	public Long getIdUser() {
+		return idUser;
+	}
+
+	public void setIdUser(Long idUser) {
+		this.idUser = idUser;
+	}
+
 	public Long getIdAnagrafica() {
 		return idAnagrafica;
 	}
@@ -44,6 +52,8 @@ public class InfoToken implements Serializable {
 	public void setIdAnagrafica(Long idAnagrafica) {
 		this.idAnagrafica = idAnagrafica;
 	}
+	
+	
 	
 	
 	

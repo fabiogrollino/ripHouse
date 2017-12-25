@@ -1,6 +1,5 @@
 package org.riphouse.token;
 
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
 import java.util.Date;
@@ -8,10 +7,9 @@ import java.util.Date;
 import javax.crypto.spec.SecretKeySpec;
 import javax.ws.rs.ForbiddenException;
 
-import org.apache.http.auth.AuthenticationException;
 import org.riphouse.config.LoaderConfig;
 import org.riphouse.config.RipHouseConfig;
-import org.riphouse.exceptions.VechoException;
+import org.riphouse.exceptions.AuthenticationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +21,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 public class TokenHandler {
-	
+
 	private Logger logger = LoggerFactory.getLogger(TokenHandler.class);
 
 	private final String AUTHENTICATION_SCHEME = "bearer ";
@@ -32,13 +30,9 @@ public class TokenHandler {
 	private RipHouseConfig cfg = LoaderConfig.getConfig();
 
 
-	public TokenHandler() throws VechoException {
-		try {
-			byte[] key = cfg.getKey().getBytes(StandardCharsets.UTF_8.name());
-			this.key = new SecretKeySpec(key, "HS512");
-		} catch (UnsupportedEncodingException e) {
-			throw new VechoException(e);
-		}
+	public TokenHandler() {
+		byte[] key = cfg.getKey().getBytes(StandardCharsets.UTF_8);
+		this.key = new SecretKeySpec(key, "HS512");
 	}
 
 	public String getStringToken(String authorizationHeader) throws AuthenticationException {

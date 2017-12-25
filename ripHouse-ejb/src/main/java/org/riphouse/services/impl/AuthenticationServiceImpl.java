@@ -8,10 +8,10 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.http.auth.AuthenticationException;
 import org.jboss.resteasy.spi.InternalServerErrorException;
 import org.riphouse.dao.UserDao;
 import org.riphouse.dto.UtenteDTO;
+import org.riphouse.exceptions.AuthenticationException;
 import org.riphouse.exceptions.VechoException;
 import org.riphouse.requests.LoginRequest;
 import org.riphouse.responses.LoginResponse;
@@ -41,11 +41,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 				throw new AuthenticationException("Username or passsword are incorrect!");
 			}
 			checks(utenteDTO, loginRequest);
-			InfoToken infoToken = new InfoToken(utenteDTO.getId(), utenteDTO.getUser(), utenteDTO.getAnagrafica());
+			InfoToken infoToken = new InfoToken(utenteDTO.getUser(), 0, utenteDTO.getId(), utenteDTO.getAnagrafica());
 			TokenHandler tokenHandler = new TokenHandler();
 			String token = tokenHandler.generateToken(infoToken);
-			logger.info("User {} login success, new token: {}", utenteDTO.getUser(), token);
-			return new LoginResponse(token);
+			if (logger.isInfoEnabled()) logger.info("User {} login success, new token: {}", utenteDTO.getUser(), token);
+			return new LoginResponse(token, infoToken.getUser(), infoToken.getLevel(), infoToken.getIdUser(), infoToken.getIdAnagrafica());
 		}  catch (AuthenticationException e) {
 			logger.error(e.getMessage(), e);
 			throw new ForbiddenException(e.getMessage());

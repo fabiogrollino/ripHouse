@@ -27,7 +27,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 
 		UtenteDTO utenteDTO = null;
 		StringBuilder sql = new StringBuilder();
-		sql.append("SELECT * FROM Utenti WHERE user = ?");
+		sql.append("SELECT * FROM utente WHERE user = ?");
 
 		try (Connection conn = getConnection(); PreparedStatement st = conn.prepareStatement(sql.toString())) {
 
