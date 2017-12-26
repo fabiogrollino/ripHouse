@@ -32,7 +32,7 @@ public class DAOProviderTest {
     	tryToGetDAO( org.riphouse.dao.DizpianoDAO.class );
     	tryToGetDAO( org.riphouse.dao.DiztipologiaassistenzialeDAO.class );
     	tryToGetDAO( org.riphouse.dao.DiztiporecapitoDAO.class );
-    	tryToGetDAO( org.riphouse.dao.EsenzioneassisititoDAO.class );
+    	tryToGetDAO( org.riphouse.dao.EsenzioneassistitoDAO.class );
     	tryToGetDAO( org.riphouse.dao.LettoDAO.class );
     	tryToGetDAO( org.riphouse.dao.LettoassistitoDAO.class );
     	tryToGetDAO( org.riphouse.dao.MedicoassistitoDAO.class );

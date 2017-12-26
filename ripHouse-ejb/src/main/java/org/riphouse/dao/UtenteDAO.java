@@ -5,7 +5,6 @@
 package org.riphouse.dao;
 
 import org.riphouse.dto.Utente;
-import org.riphouse.exceptions.VechoException;
 
 /**
  * Utente DAO interface
@@ -14,7 +13,7 @@ import org.riphouse.exceptions.VechoException;
  */
 public interface UtenteDAO {
 	
-	public Utente login(String username) throws VechoException;
+	public Utente login(String username);
 
 	//----------------------------------------------------------------------
 	/**

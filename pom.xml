@@ -68,6 +68,20 @@
 			<properties>
 				<KEY_TOKEN_VALUE>fjdgfkajedfkjdshajfkhdkfjad</KEY_TOKEN_VALUE>
 				<EXP_TIME_MILLIS>1800000</EXP_TIME_MILLIS>
+				<MAX_LOGIN_ATTEMPTS>10</MAX_LOGIN_ATTEMPTS>
+				<TIME_FOR_RETRY>600000</TIME_FOR_RETRY>
+				<DATA_SORCE_NAME>java:/jdbc/vecho</DATA_SORCE_NAME>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>prod</id>
+			<properties>
+				<KEY_TOKEN_VALUE></KEY_TOKEN_VALUE> <!-- inserirla manualmene -->
+				<EXP_TIME_MILLIS>1800000</EXP_TIME_MILLIS>
+				<MAX_LOGIN_ATTEMPTS>10</MAX_LOGIN_ATTEMPTS>
+				<TIME_FOR_RETRY>600000</TIME_FOR_RETRY>
+				<DATA_SORCE_NAME>java:/jdbc/vecho</DATA_SORCE_NAME>
 			</properties>
 		</profile>
 

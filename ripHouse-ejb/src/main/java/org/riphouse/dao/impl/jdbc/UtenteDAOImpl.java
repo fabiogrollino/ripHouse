@@ -11,7 +11,6 @@ import javax.ejb.Stateless;
 import org.riphouse.dao.UtenteDAO;
 import org.riphouse.dao.impl.jdbc.commons.GenericDAO;
 import org.riphouse.dto.Utente;
-import org.riphouse.exceptions.VechoException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +45,7 @@ public class UtenteDAOImpl extends GenericDAO<Utente> implements UtenteDAO {
 	
 
 	@Override
-	public Utente login(String username) throws VechoException {
+	public Utente login(String username) {
 
 		Utente utente = null;
 		StringBuilder sql = new StringBuilder();
@@ -60,13 +59,13 @@ public class UtenteDAOImpl extends GenericDAO<Utente> implements UtenteDAO {
 					populateBean(rs, utente);
 				}
 				if (rs.next()) {
-					throw new VechoException("Unexpected results size!");
+					throw new RuntimeException("Unexpected results size!");
 				}
 				return utente;
 			}
 		} catch (SQLException e) {
 			logger.error(e.getMessage(), e);
-			throw new VechoException(e);
+			throw new RuntimeException(e);
 		}
 	}
 	
@@ -242,7 +241,7 @@ public class UtenteDAOImpl extends GenericDAO<Utente> implements UtenteDAO {
 		utente.setUltimologin(rs.getDate("ultimoLogin")); // java.util.Date
 		utente.setCountloginfailed(rs.getInt("countLoginFailed")); // java.lang.Integer
 		if ( rs.wasNull() ) { utente.setCountloginfailed(null); }; // not primitive number => keep null value if any
-		utente.setUtentebloccato(rs.getByte("utenteBloccato")); // java.lang.Byte
+		utente.setUtentebloccato(rs.getBoolean("utenteBloccato")); // java.lang.Byte
 		if ( rs.wasNull() ) { utente.setUtentebloccato(null); }; // not primitive number => keep null value if any
 		utente.setFirstLoginFailed(rs.getDate("firstLoginFailed")); // java.lang.Date
 		if ( rs.wasNull() ) { utente.setFirstLoginFailed(null); }; // not primitive number => keep null value if any
@@ -261,7 +260,7 @@ public class UtenteDAOImpl extends GenericDAO<Utente> implements UtenteDAO {
 		setValue(ps, i++, utente.getLivello() ) ; // "livello" : java.lang.Integer
 		setValue(ps, i++, utente.getUltimologin() ) ; // "ultimoLogin" : java.util.Date
 		setValue(ps, i++, utente.getCountloginfailed() ) ; // "countLoginFailed" : java.lang.Integer
-		setValue(ps, i++, utente.getUtentebloccato() ) ; // "utenteBloccato" : java.lang.Byte
+		setValue(ps, i++, utente.getUtentebloccato() ) ; // "utenteBloccato" : java.lang.Boolean
 		setValue(ps, i++, utente.getFirstLoginFailed() ) ; // "firstLoginFailed" : java.util.Date
 	}
 
@@ -276,7 +275,7 @@ public class UtenteDAOImpl extends GenericDAO<Utente> implements UtenteDAO {
 		setValue(ps, i++, utente.getLivello() ) ; // "livello" : java.lang.Integer
 		setValue(ps, i++, utente.getUltimologin() ) ; // "ultimoLogin" : java.util.Date
 		setValue(ps, i++, utente.getCountloginfailed() ) ; // "countLoginFailed" : java.lang.Integer
-		setValue(ps, i++, utente.getUtentebloccato() ) ; // "utenteBloccato" : java.lang.Byte
+		setValue(ps, i++, utente.getUtentebloccato() ) ; // "utenteBloccato" : java.lang.Boolean
 		setValue(ps, i++, utente.getFirstLoginFailed() ) ; // "firstLoginFailed" : java.util.Date
 		//--- Set PRIMARY KEY from bean to PreparedStatement ( SQL "WHERE key=?, ..." )
 		setValue(ps, i++, utente.getId() ) ; // "id" : java.lang.Long

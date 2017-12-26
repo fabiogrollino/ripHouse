@@ -36,7 +36,7 @@ public class Utente implements Serializable {
     private Integer countloginfailed;
 
     // DB : utenteBloccato TINYINT 
-    private Byte utentebloccato;
+    private Boolean utentebloccato;
     
     private Date firstLoginFailed;
     
@@ -98,10 +98,10 @@ public class Utente implements Serializable {
         return this.countloginfailed;
     }
 
-    public void setUtentebloccato( Byte utentebloccato ) {
+    public void setUtentebloccato(Boolean utentebloccato) {
         this.utentebloccato = utentebloccato;
     }
-    public Byte getUtentebloccato() {
+    public Boolean getUtentebloccato() {
         return this.utentebloccato;
     }
     

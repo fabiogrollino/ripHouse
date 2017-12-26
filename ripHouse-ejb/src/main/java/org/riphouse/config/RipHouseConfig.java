@@ -22,4 +22,16 @@ public interface RipHouseConfig extends Config {
 	
 	@Key("KEY_TOKEN_VALUE")
 	String getKey();
+	
+	@DefaultValue("10")
+	@Key("MAX_LOGIN_ATTEMPTS")
+	int getMaxLoginAttempts();
+	
+	@DefaultValue("600000")
+	@Key("TIME_FOR_RETRY")
+	long getTimeForRetry();
+	
+	@DefaultValue("java:/jdbc/vecho")
+	@Key("DATA_SORCE_NAME")
+	String getDataSourceName();
 }

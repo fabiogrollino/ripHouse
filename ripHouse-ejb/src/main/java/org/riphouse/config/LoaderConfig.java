@@ -16,5 +16,8 @@ public class LoaderConfig {
 		}
 		return config;
 	}
+	
+	private LoaderConfig() {
+	}
 
 }
