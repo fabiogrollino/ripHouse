@@ -29,8 +29,8 @@ public class Lettoassistito implements Serializable {
     // DB : Letto BIGINT 
     private Long letto;
 
-    // DB : Assisitito BIGINT 
-    private Long assisitito;
+    // DB : Assistito BIGINT 
+    private Long assistito;
 
 
 
@@ -56,11 +56,11 @@ public class Lettoassistito implements Serializable {
         return this.letto;
     }
 
-    public void setAssisitito( Long assisitito ) {
-        this.assisitito = assisitito;
+    public void setAssistito( Long assistito ) {
+        this.assistito = assistito;
     }
-    public Long getAssisitito() {
-        return this.assisitito;
+    public Long getAssistito() {
+        return this.assistito;
     }
 
 
@@ -73,7 +73,7 @@ public class Lettoassistito implements Serializable {
         sb.append("|");
         sb.append(letto);
         sb.append("|");
-        sb.append(assisitito);
+        sb.append(assistito);
         return sb.toString(); 
     } 
 

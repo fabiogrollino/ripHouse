@@ -21,13 +21,13 @@ import org.riphouse.dao.impl.jdbc.commons.GenericDAO;
 public class MedicoassistitoDAOImpl extends GenericDAO<Medicoassistito> implements MedicoassistitoDAO {
 
 	private final static String SQL_SELECT = 
-		"select id, Medico, Assisitito from medicoassistito where id = ?";
+		"select id, Medico, Assistito from medicoassistito where id = ?";
 
 	private final static String SQL_INSERT = 
-		"insert into medicoassistito ( Medico, Assisitito ) values ( ?, ? )";
+		"insert into medicoassistito ( Medico, Assistito ) values ( ?, ? )";
 
 	private final static String SQL_UPDATE = 
-		"update medicoassistito set Medico = ?, Assisitito = ? where id = ?";
+		"update medicoassistito set Medico = ?, Assistito = ? where id = ?";
 
 	private final static String SQL_DELETE = 
 		"delete from medicoassistito where id = ?";
@@ -210,8 +210,8 @@ public class MedicoassistitoDAOImpl extends GenericDAO<Medicoassistito> implemen
 		if ( rs.wasNull() ) { medicoassistito.setId(null); }; // not primitive number => keep null value if any
 		medicoassistito.setMedico(rs.getLong("Medico")); // java.lang.Long
 		if ( rs.wasNull() ) { medicoassistito.setMedico(null); }; // not primitive number => keep null value if any
-		medicoassistito.setAssisitito(rs.getLong("Assisitito")); // java.lang.Long
-		if ( rs.wasNull() ) { medicoassistito.setAssisitito(null); }; // not primitive number => keep null value if any
+		medicoassistito.setAssistito(rs.getLong("Assistito")); // java.lang.Long
+		if ( rs.wasNull() ) { medicoassistito.setAssistito(null); }; // not primitive number => keep null value if any
 		return medicoassistito ;
 	}
 
@@ -222,7 +222,7 @@ public class MedicoassistitoDAOImpl extends GenericDAO<Medicoassistito> implemen
 		//--- Set PRIMARY KEY and DATA from bean to PreparedStatement ( SQL "SET x=?, y=?, ..." )
 		// "id" is auto-incremented => no set in insert		
 		setValue(ps, i++, medicoassistito.getMedico() ) ; // "Medico" : java.lang.Long
-		setValue(ps, i++, medicoassistito.getAssisitito() ) ; // "Assisitito" : java.lang.Long
+		setValue(ps, i++, medicoassistito.getAssistito() ) ; // "Assistito" : java.lang.Long
 	}
 
     //----------------------------------------------------------------------
@@ -231,7 +231,7 @@ public class MedicoassistitoDAOImpl extends GenericDAO<Medicoassistito> implemen
 
 		//--- Set DATA from bean to PreparedStatement ( SQL "SET x=?, y=?, ..." )
 		setValue(ps, i++, medicoassistito.getMedico() ) ; // "Medico" : java.lang.Long
-		setValue(ps, i++, medicoassistito.getAssisitito() ) ; // "Assisitito" : java.lang.Long
+		setValue(ps, i++, medicoassistito.getAssistito() ) ; // "Assistito" : java.lang.Long
 		//--- Set PRIMARY KEY from bean to PreparedStatement ( SQL "WHERE key=?, ..." )
 		setValue(ps, i++, medicoassistito.getId() ) ; // "id" : java.lang.Long
 	}

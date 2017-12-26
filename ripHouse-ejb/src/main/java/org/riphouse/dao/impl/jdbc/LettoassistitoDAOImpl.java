@@ -21,13 +21,13 @@ import org.riphouse.dao.impl.jdbc.commons.GenericDAO;
 public class LettoassistitoDAOImpl extends GenericDAO<Lettoassistito> implements LettoassistitoDAO {
 
 	private final static String SQL_SELECT = 
-		"select id, Letto, Assisitito from lettoassistito where id = ?";
+		"select id, Letto, Assistito from lettoassistito where id = ?";
 
 	private final static String SQL_INSERT = 
-		"insert into lettoassistito ( Letto, Assisitito ) values ( ?, ? )";
+		"insert into lettoassistito ( Letto, Assistito ) values ( ?, ? )";
 
 	private final static String SQL_UPDATE = 
-		"update lettoassistito set Letto = ?, Assisitito = ? where id = ?";
+		"update lettoassistito set Letto = ?, Assistito = ? where id = ?";
 
 	private final static String SQL_DELETE = 
 		"delete from lettoassistito where id = ?";
@@ -210,8 +210,8 @@ public class LettoassistitoDAOImpl extends GenericDAO<Lettoassistito> implements
 		if ( rs.wasNull() ) { lettoassistito.setId(null); }; // not primitive number => keep null value if any
 		lettoassistito.setLetto(rs.getLong("Letto")); // java.lang.Long
 		if ( rs.wasNull() ) { lettoassistito.setLetto(null); }; // not primitive number => keep null value if any
-		lettoassistito.setAssisitito(rs.getLong("Assisitito")); // java.lang.Long
-		if ( rs.wasNull() ) { lettoassistito.setAssisitito(null); }; // not primitive number => keep null value if any
+		lettoassistito.setAssistito(rs.getLong("Assistito")); // java.lang.Long
+		if ( rs.wasNull() ) { lettoassistito.setAssistito(null); }; // not primitive number => keep null value if any
 		return lettoassistito ;
 	}
 
@@ -222,7 +222,7 @@ public class LettoassistitoDAOImpl extends GenericDAO<Lettoassistito> implements
 		//--- Set PRIMARY KEY and DATA from bean to PreparedStatement ( SQL "SET x=?, y=?, ..." )
 		// "id" is auto-incremented => no set in insert		
 		setValue(ps, i++, lettoassistito.getLetto() ) ; // "Letto" : java.lang.Long
-		setValue(ps, i++, lettoassistito.getAssisitito() ) ; // "Assisitito" : java.lang.Long
+		setValue(ps, i++, lettoassistito.getAssistito() ) ; // "Assistito" : java.lang.Long
 	}
 
     //----------------------------------------------------------------------
@@ -231,7 +231,7 @@ public class LettoassistitoDAOImpl extends GenericDAO<Lettoassistito> implements
 
 		//--- Set DATA from bean to PreparedStatement ( SQL "SET x=?, y=?, ..." )
 		setValue(ps, i++, lettoassistito.getLetto() ) ; // "Letto" : java.lang.Long
-		setValue(ps, i++, lettoassistito.getAssisitito() ) ; // "Assisitito" : java.lang.Long
+		setValue(ps, i++, lettoassistito.getAssistito() ) ; // "Assistito" : java.lang.Long
 		//--- Set PRIMARY KEY from bean to PreparedStatement ( SQL "WHERE key=?, ..." )
 		setValue(ps, i++, lettoassistito.getId() ) ; // "id" : java.lang.Long
 	}

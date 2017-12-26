@@ -21,13 +21,13 @@ import org.riphouse.dao.impl.jdbc.commons.GenericDAO;
 public class CaregiverassistitoDAOImpl extends GenericDAO<Caregiverassistito> implements CaregiverassistitoDAO {
 
 	private final static String SQL_SELECT = 
-		"select id, CareGiver, Assisitito, TipoCareGiver from caregiverassistito where id = ?";
+		"select id, CareGiver, Assistito, TipoCareGiver from caregiverassistito where id = ?";
 
 	private final static String SQL_INSERT = 
-		"insert into caregiverassistito ( CareGiver, Assisitito, TipoCareGiver ) values ( ?, ?, ? )";
+		"insert into caregiverassistito ( CareGiver, Assistito, TipoCareGiver ) values ( ?, ?, ? )";
 
 	private final static String SQL_UPDATE = 
-		"update caregiverassistito set CareGiver = ?, Assisitito = ?, TipoCareGiver = ? where id = ?";
+		"update caregiverassistito set CareGiver = ?, Assistito = ?, TipoCareGiver = ? where id = ?";
 
 	private final static String SQL_DELETE = 
 		"delete from caregiverassistito where id = ?";
@@ -210,8 +210,8 @@ public class CaregiverassistitoDAOImpl extends GenericDAO<Caregiverassistito> im
 		if ( rs.wasNull() ) { caregiverassistito.setId(null); }; // not primitive number => keep null value if any
 		caregiverassistito.setCaregiver(rs.getLong("CareGiver")); // java.lang.Long
 		if ( rs.wasNull() ) { caregiverassistito.setCaregiver(null); }; // not primitive number => keep null value if any
-		caregiverassistito.setAssisitito(rs.getLong("Assisitito")); // java.lang.Long
-		if ( rs.wasNull() ) { caregiverassistito.setAssisitito(null); }; // not primitive number => keep null value if any
+		caregiverassistito.setAssistito(rs.getLong("Assistito")); // java.lang.Long
+		if ( rs.wasNull() ) { caregiverassistito.setAssistito(null); }; // not primitive number => keep null value if any
 		caregiverassistito.setTipocaregiver(rs.getString("TipoCareGiver")); // java.lang.String
 		return caregiverassistito ;
 	}
@@ -223,7 +223,7 @@ public class CaregiverassistitoDAOImpl extends GenericDAO<Caregiverassistito> im
 		//--- Set PRIMARY KEY and DATA from bean to PreparedStatement ( SQL "SET x=?, y=?, ..." )
 		// "id" is auto-incremented => no set in insert		
 		setValue(ps, i++, caregiverassistito.getCaregiver() ) ; // "CareGiver" : java.lang.Long
-		setValue(ps, i++, caregiverassistito.getAssisitito() ) ; // "Assisitito" : java.lang.Long
+		setValue(ps, i++, caregiverassistito.getAssistito() ) ; // "Assistito" : java.lang.Long
 		setValue(ps, i++, caregiverassistito.getTipocaregiver() ) ; // "TipoCareGiver" : java.lang.String
 	}
 
@@ -233,7 +233,7 @@ public class CaregiverassistitoDAOImpl extends GenericDAO<Caregiverassistito> im
 
 		//--- Set DATA from bean to PreparedStatement ( SQL "SET x=?, y=?, ..." )
 		setValue(ps, i++, caregiverassistito.getCaregiver() ) ; // "CareGiver" : java.lang.Long
-		setValue(ps, i++, caregiverassistito.getAssisitito() ) ; // "Assisitito" : java.lang.Long
+		setValue(ps, i++, caregiverassistito.getAssistito() ) ; // "Assistito" : java.lang.Long
 		setValue(ps, i++, caregiverassistito.getTipocaregiver() ) ; // "TipoCareGiver" : java.lang.String
 		//--- Set PRIMARY KEY from bean to PreparedStatement ( SQL "WHERE key=?, ..." )
 		setValue(ps, i++, caregiverassistito.getId() ) ; // "id" : java.lang.Long

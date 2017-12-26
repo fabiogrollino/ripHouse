@@ -4,14 +4,14 @@
  */
 package org.riphouse.dao;
 
-import org.riphouse.dto.Esenzioneassisitito;
+import org.riphouse.dto.Esenzioneassistito;
 
 /**
- * Esenzioneassisitito DAO interface
+ * Esenzioneassistito DAO interface
  * 
  * @author Telosys Tools
  */
-public interface EsenzioneassisititoDAO {
+public interface EsenzioneassistitoDAO {
 
 	//----------------------------------------------------------------------
 	/**
@@ -19,33 +19,33 @@ public interface EsenzioneassisititoDAO {
 	 * @param id
 	 * @return the bean found or null if not found 
 	 */
-	public Esenzioneassisitito find( Long id ) ;
+	public Esenzioneassistito find( Long id ) ;
 
 	//----------------------------------------------------------------------
 	/**
 	 * Loads the given bean, it is supposed to contains the primary key value(s) in its attribute(s)<br>
 	 * If found, the given instance is populated with the values retrieved from the database<br>
 	 * If not found, the given instance remains unchanged
-	 * @param esenzioneassisitito
+	 * @param esenzioneassistito
 	 * @return true if found, false if not found
 	 */
-	public boolean load( Esenzioneassisitito esenzioneassisitito ) ;
+	public boolean load( Esenzioneassistito esenzioneassistito ) ;
 	
     //----------------------------------------------------------------------
 	/**
 	 * Inserts the given bean in the database 
-	 * @param esenzioneassisitito
+	 * @param esenzioneassistito
 	 * @return the generated value for the auto-incremented column
 	 */
-	public Long insert(Esenzioneassisitito esenzioneassisitito) ;
+	public Long insert(Esenzioneassistito esenzioneassistito) ;
 
     //----------------------------------------------------------------------
 	/**
 	 * Updates the given bean in the database 
-	 * @param esenzioneassisitito
+	 * @param esenzioneassistito
 	 * @return
 	 */
-	public int update(Esenzioneassisitito esenzioneassisitito) ;
+	public int update(Esenzioneassistito esenzioneassistito) ;
 
     //----------------------------------------------------------------------
 	/**
@@ -58,10 +58,10 @@ public interface EsenzioneassisititoDAO {
     //----------------------------------------------------------------------
 	/**
 	 * Deletes the given bean in the database 
-	 * @param esenzioneassisitito
+	 * @param esenzioneassistito
 	 * @return
 	 */
-	public int delete( Esenzioneassisitito esenzioneassisitito ) ;
+	public int delete( Esenzioneassistito esenzioneassistito ) ;
 
     //----------------------------------------------------------------------
 	/**
@@ -74,10 +74,10 @@ public interface EsenzioneassisititoDAO {
 	//----------------------------------------------------------------------
 	/**
 	 * Checks the existence of the given bean in the database 
-	 * @param esenzioneassisitito
+	 * @param esenzioneassistito
 	 * @return
 	 */
-	public boolean exists( Esenzioneassisitito esenzioneassisitito ) ;
+	public boolean exists( Esenzioneassistito esenzioneassistito ) ;
 
     //----------------------------------------------------------------------
 	/**
