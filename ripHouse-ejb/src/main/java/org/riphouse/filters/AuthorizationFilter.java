@@ -60,7 +60,7 @@ public class AuthorizationFilter implements ContainerRequestFilter {
 				PostMatchContainerRequestContext pmcRequestContext =  (PostMatchContainerRequestContext) requestContext;
 				ResourceMethodInvoker rmi = pmcRequestContext.getResourceMethod();
 				Integer levelMethod = getServiceLevel(rmi.getMethod());
-				Integer levelClass = getServiceLevel(rmi.getClass());
+				Integer levelClass = getServiceLevel(rmi.getResourceClass());
 				serviceLevel = levelMethod != null ? levelMethod : levelClass;
 			}
 
