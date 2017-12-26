@@ -4,10 +4,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+
 import org.riphouse.dto.Esenzioneassistito;
 import org.riphouse.dao.EsenzioneassistitoDAO;
 import org.riphouse.dao.impl.jdbc.commons.GenericDAO;
 
+@Local(EsenzioneassistitoDAO.class)
+@Stateless
 public class EsenzioneassistitoDAOImpl extends GenericDAO<Esenzioneassistito> implements EsenzioneassistitoDAO {
 
 	private final static String SQL_SELECT = 

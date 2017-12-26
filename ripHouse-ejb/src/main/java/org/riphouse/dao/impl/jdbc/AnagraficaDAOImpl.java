@@ -4,10 +4,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+
 import org.riphouse.dto.Anagrafica;
 import org.riphouse.dao.AnagraficaDAO;
 import org.riphouse.dao.impl.jdbc.commons.GenericDAO;
 
+@Local(AnagraficaDAO.class)
+@Stateless
 public class AnagraficaDAOImpl extends GenericDAO<Anagrafica> implements AnagraficaDAO {
 
 	private final static String SQL_SELECT = 

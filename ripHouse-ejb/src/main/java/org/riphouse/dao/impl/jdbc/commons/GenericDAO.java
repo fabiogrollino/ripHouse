@@ -47,6 +47,12 @@ public abstract class GenericDAO<T> {
 		return dataSource.getConnection();
 	}
 
+	/**
+	 * This method is deprecated with jdk 1.8.
+	 * Use try-with-resources
+	 * @param conn
+	 */
+	@Deprecated
 	protected void closeConnection(Connection conn) {
 		if (conn != null) {
 			try {

@@ -8,16 +8,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+
 import org.riphouse.dto.Recapito;
 import org.riphouse.dao.RecapitoDAO;
 import org.riphouse.dao.impl.jdbc.commons.GenericDAO;
 
-/**
- * Recapito DAO implementation 
- * 
- * @author Telosys Tools
- *
- */
+@Local(RecapitoDAO.class)
+@Stateless
 public class RecapitoDAOImpl extends GenericDAO<Recapito> implements RecapitoDAO {
 
 	private final static String SQL_SELECT = 
