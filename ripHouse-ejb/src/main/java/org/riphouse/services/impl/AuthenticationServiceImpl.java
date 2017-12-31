@@ -3,8 +3,6 @@ package org.riphouse.services.impl;
 import java.util.Date;
 
 import javax.ejb.EJB;
-import javax.ejb.Local;
-import javax.ejb.Stateless;
 import javax.ws.rs.ForbiddenException;
 import javax.ws.rs.NotAuthorizedException;
 import javax.ws.rs.core.Context;
@@ -25,8 +23,6 @@ import org.riphouse.token.TokenHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Local(AuthenticationService.class)
-@Stateless
 public class AuthenticationServiceImpl implements AuthenticationService {
 
 	private Logger logger = LoggerFactory.getLogger(AuthenticationServiceImpl.class);
